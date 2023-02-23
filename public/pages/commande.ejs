@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../images/logo/ic.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../styles/css/commande.css">
+    <title>
+        <%= data %>
+    </title>
+</head>
+
+<body>
+    <header>
+        <%- include("./components/navigation") %>
+            <h2>LIVRAISON</h2>
+    </header>
+    <%- include('./components/addUser') %>
+    <div class="loading">
+        <div class="animation">
+            <div class="icone-animation">
+                <div class="ic g">
+                    <img src="../images/svg/addimages.svg">
+                </div>
+                <div class="fleches">
+                    <div class="fleche">
+                     <div>
+                        <img src="../images/svg/fleches.svg">
+                     </div>
+                     <div>
+                        <img src="../images/svg/fleches.svg">
+                     </div>
+                    </div>
+                </div>
+                <div class="ic w">
+                    <img src="../images/svg/whatsapp.svg">
+                </div>
+            </div>
+            <h2>Votre <%= data %> est en cour de traitement...</h2>
+        </div>
+    </div>
+    <main id="body">
+        <!-- section article selectionner -->
+        <section id="article-commander">
+
+            <div id="photo-contener">
+                <div class="photo">
+                    <div class="btn-left btn-slide-article"><img src="../images/svg/sup.svg" alt=""></div>
+                    <div class="btn-right btn-slide-article"><img src="../images/svg/sup.svg" alt=""></div>
+
+                </div>
+            </div>
+            <div id="detail-article">
+                <div class="forms">
+                    <% if (data=="livraison" ) { %>
+                     <form action="/api/commande/<%= data %>/<%= JSON.stringify(user) %>" method="post" class="livraison form active">
+                            <p class="quantiter">Nombre d'article : <span class="semi-important sold"
+                                    data-solde="quantiter">0</span><span class="semi-important">articles</span></p>
+                            <p class="total">Total : <span class="important sold" data-solde="prix">0</span><span
+                                    class="important"> FCFA</span></p>
+                            <p class="titre-form">Dite nous ou vous trouver</p>
+                            <div class="input_infos">
+                                <input type="text" name="ville" id="ville" placeholder="Ville/Cartier de livraison"
+                                    required>
+                            </div>
+                            <p>Quand voulez-vous faire livrer ?</p>
+                            <div class="fixe_date_contener">
+                                <input type="date" name="date" id="fixe-date" required>
+                            </div>
+                            <div class="contener-btn">
+                                <button id="send" class="restore" type="submit">Evoye la demande</button>
+                                <a href="/home"><button class="restore" type="button">Annuler</button></a>
+                            </div>
+                        </form>
+                        <% } else { %>
+                            <form action="/api/commande/<%= data %>/<%= JSON.stringify(user) %>" method="post" class="reservation form">
+                                <p class="quantiter">Nombre d'article : <span class="semi-important sold"
+                                        data-solde="quantiter"></span><span class="semi-important">articles</span></p>
+                                <p class="total">Total : <span class="important sold" data-solde="prix"></span><span
+                                        class="important">
+                                        FCFA</span></p>
+                                <p>Quand venez-vous recuperer vos articles ?</p>
+                                <div class="fixe_date_contener">
+                                    <input type="date" name="date" id="date" required>
+                                </div>
+                                <div class="contener-btn">
+                                    <button id="send" class="restore" type="submit">Evoye la demande</button>
+                                    <a href="/home"><button class="restore" type="button">Annuler</button></a>
+                                </div>
+                            </form>
+                            <% } %>
+                </div>
+            </div>
+        </section>
+        <!-- end section article selectionner -->
+    </main>
+    <%- include('./components/footer') %>
+    <%- include('./components/scripts') %>
+    <script src="../js/commande.js"></script>
+</body>
+
+</html>

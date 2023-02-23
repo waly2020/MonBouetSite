@@ -1,0 +1,5 @@
+node_modules
+public/js/script.js
+corbeille
+.env
+scripts/pool.js

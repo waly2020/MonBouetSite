@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../images/logo/ic.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../styles/css/style.css">
+    <title>Marché Mont Bouët online</title>
+</head>
+
+<body>
+    <!-- start header -->
+    <header>
+        <img src="../images/background/background.jpeg" class="background">
+        <!-- start nav -->
+        <%- include("./components/navigation") %>
+            <!-- end nav -->
+            <!-- div texte -->
+            <div class="textes">
+                <div class="texte">
+                    <h1>BIENVENUE SUR <span style="color: orange; text-transform: uppercase;">MARCHÉ <br>Mont Bouët ONLINE</span></h1>
+                    <p>Tout Mont Bouët en un seul endroit !</p>
+                    <div class="btns-header">
+                        <a href="/boutique"><button class="btn-article">voir les articles</button></a>
+                        <a href="/abonne/<%= user ? user.id : "null" %> /<%= user ? user.isabonne : "null" %> /<%= url %> " class="link-abonne">
+                            <% if (user?.isabonne == 1) { %>
+                                <button class="btn-abone abonner active">Déjà abonné</button>
+                               <% } else {%>
+                                   <button class="btn-abone abonner">S'abonné</button>
+                            <% } %> 
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- end div texte -->
+            <%- include('./components/addUser') %>
+            <!-- div image -->
+            <div class="image">
+
+                <div class="header-article"></div>
+
+            </div>
+            <!-- end div image -->
+    </header>
+    <!-- end header -->
+    <%- include("./components/panier") %>
+        <!-- start main -->
+        <main>
+            <!-- start section article -->
+            <section class="articles">
+                <h2 class="sous-titre">Nos Articles</h2>
+                <%- include("./components/articles") %>
+                    <p class="liens-plus"><a href="/boutique">plus d'articles </a></p>
+            </section>
+            <!-- end section article -->
+            <!-- section services -->
+            <section class="services">
+                <h2 class="sous-titre">NOS Services</h2>
+                <div class="contener-services">
+                    <!-- start carte service -->
+                    <% let i = 0 %> 
+                    <% while (i < 4 && i < services.length) {%>
+                    <% let s = services[(services.length - 1) - i] %>
+                    <div class="service">
+                        <div class="icone-sevice">
+                            <div class="icone"><img src="../images/upload/<%= s.image %> " alt="icone livraison"></div>
+                            <p><%= s.nom %> </p>
+                        </div>
+                        <p class="description-service">
+                            <%= s.description %> 
+                        </p>
+                    </div>
+                    <% i++ %> 
+                    <% } %> 
+                    <!-- end carte service -->
+                </div>
+                <p class="liens-plus"><a href="/services">plus de services </a></p>
+
+            </section>
+            <!-- end section services -->
+        </main>
+        <!-- end main  -->
+        <!-- start footer  -->
+        <%- include('./components/footer') %>
+        <!-- end footer -->
+        <%- include('./components/scripts') %>
+        <script defer src="../js/apiQuery.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+{
+  "name": "peopleecommerce",
+  "version": "1.0.0",
+  "description": "site ecommerce de gabon mont bouet",
+  "main": "main.js",
+  "scripts": {
+    "start": "node -r dotenv/config scripts/main.js",
+    "dev": "nodemon -r dotenv/config scripts/main.js",
+    "sass-index": "sass --watch public/styles/sass/style.scss public/styles/css/style.css",
+    "sass-connexions": "sass --watch public/styles/sass/connexions.scss public/styles/css/connexions.css",
+    "sass-commande": "sass --watch public/styles/sass/commande.scss public/styles/css/commande.css",
+    "sass-boutique": "sass --watch public/styles/sass/boutique.scss public/styles/css/boutique.css",
+    "sass-admin": "sass --watch public/styles/sass/styles_admin/admin.scss public/css_admin/admin.css",
+    "sass-about": "sass --watch public/styles/sass/about.scss public/styles/css/about.css",
+    "sass-contacte": "sass --watch public/styles/sass/contacte.scss public/styles/css/contacte.css",
+    "sass-service": "sass --watch public/styles/sass/service.scss public/styles/css/service.css",
+    "sass-blog": "sass --watch public/styles/sass/blog.scss public/styles/css/blog.css",
+    "sass-status": "sass --watch public/styles/sass/status-commande.scss public/styles/css/status-commande.css"
+  },
+  "author": "waly le dev",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "cross-env": "^7.0.3",
+    "dotenv": "^16.0.3",
+    "ejs": "^3.1.8",
+    "express": "^4.18.1",
+    "express-myconnection": "^1.0.4",
+    "express-session": "^1.17.3",
+    "g": "^2.0.1",
+    "multer": "^1.4.5-lts.1",
+    "mysql": "^2.18.1",
+    "node-localstorage": "^2.2.1",
+    "nodemon": "^2.0.20",
+    "qrcode-terminal": "^0.12.0",
+    "util.promisify": "^1.1.1"
+  }
+}

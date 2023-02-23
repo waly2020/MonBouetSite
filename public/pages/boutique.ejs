@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../images/logo/ic.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../styles/css/boutique.css">
+    <title>boutique</title>
+</head>
+
+<body>
+    <header>
+        <%- include("./components/navigation") %>
+        <img src="../images/background/shop.jpg" class="background">
+            <div class="titre-b">
+                <h1>BOUTIQUE</h1>
+            </div>
+    </header>
+    <%- include('./components/addUser') %>
+    <%- include("./components/panier") %>
+        <section class="articles">
+            <!-- <div id="recherche">
+                <select name="categories" id="categories">
+                    <option value="tout">Tout</option>
+                    <option value="vetements">Vetement</option>
+                    <option value="electronique">electronique</option>
+                </select>
+                <form action="#">
+                    <input type="search" name="search" id="search" placeholder="recherche...">
+                    <button type="submit">
+                        <img src="../images/svg/rech.svg" alt="">
+                    </button>
+                </form>
+            </div> -->
+                <%- include('./components/articles') %>
+        </section>
+        <%- include('./components/footer') %>
+        <%- include('./components/scripts') %>
+            <script src="../js/apiQuery.js"></script>
+</body>
+
+</html>

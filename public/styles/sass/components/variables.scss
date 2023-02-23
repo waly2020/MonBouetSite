@@ -1,0 +1,26 @@
+// police d'ecriture
+$font-h1 : "titre-h1";
+$font-h2 : "titre-h2";
+$font-para : "para";
+
+/* margin de la page
+    ____________
+    | ________ |
+    |m|      |m|
+    | |______| |
+    |__________|
+*/
+$margin-page : 8vw;
+$max-margin : 2vw;
+
+// alpha color
+$alpha : rgba(0, 0, 0, .3);
+
+// hauteur des elements categories
+$h-catecories : 50%;
+
+// couleurs principal
+$main-color : #232227;
+// couleur footer
+$main-color-alpha : #00116593;
+$footer-color : rgb(0, 11, 28);

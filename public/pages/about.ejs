@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../images/logo/ic.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../styles/css/about.css">
+    <title>Qui somme nous ?</title>
+</head>
+
+<body>
+    <header>
+        <%- include("./components/navigation") %>
+        <img src="../images/background/MontBouet.jpg" class="background">
+            <div class="contente">
+                <h1>Mont bouet gabon</h1>
+            </div>
+    </header>
+    <%- include('./components/addUser') %>
+    <main class="body">
+        <section class="presentation">
+            <div class="texte">
+                <h2 class="titre">Salut...</h2>
+                <p>
+                    Je suis un jeune entrepreneur gabonais au nom de Astrid Obame, bienvenue sur mon site où vous pouvez commander et réserver des articles tel que des appareils électriques, des vêtement, des appareils et plein d'autres.
+                </p>
+            </div>
+            <div class="img">
+                <img src="../images/background/about.png" alt="Astrid obame">
+            </div>
+        </section>
+        <section class="presentation">
+            <div class="img">
+                <img src="../images/background/MontBouet.jpg" alt="Astrid obame">
+            </div>
+            <div class="texte">
+                <h2 class="titre">Marche Mont Bout online est...</h2>
+                <p>
+                 Une plate-forme qui offre a de nombreux consommateurs d'articles, une grande facilite d'achat réduisant
+                 les déplacements a des prix promotionnels. <br>
+                 Notre site offre à nos consommateurs, la possibilité da savourer les avantages des achats en ligne
+                 par des livraisons à moitié le prix. <br>
+                 Ce site intervient sur tout le Gabon.
+                </p>
+            </div>
+        </section>
+        <section class="avantages">
+            <h2 class="titre">Ici vous pouvez...</h2>
+            <div class="avantage">
+                <div class="atg1">
+                    <div class="icone">
+                        <img src="../images/svg/livraison.svg">
+                    </div>
+                    <p class="desc">Vous faire livré vos articles.</p>
+                </div>
+                <div class="atg2">
+                    <div class="icone">
+                        <img src="../images/svg/livraison.svg">
+                    </div>
+                    <p class="desc">Reservé vos articles.</p>
+                </div>
+                <div class="atg3">
+                    <div class="icone">
+                        <img src="../images/svg/livraison.svg">
+                    </div>
+                    <p class="desc">Vous faire livré quand vous voulez et ou vous voulez.</p>
+                </div>
+                <div class="atg4">
+                    <div class="icone">
+                        <img src="../images/svg/livraison.svg">
+                    </div>
+                    <p class="desc">Récupérer les articles réserver quand vous voulez.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <section class="thanks">
+        <div class="contente">
+            <% if (user?.isabonne == 1) { %>
+                <h2>Merci d'avoir rejoint la communauté</h2>
+            <% } else {%>
+                <h2>N'oubliez pas de vous abonner.</h2>
+            <% } %> 
+            
+            <div class="btns">
+                <a href="/abonne/<%= user ? user.id : "null" %> /<%= user ? user.isabonne : "null" %> /<%= url %> ">
+                    <% if (user?.isabonne == 1) { %>
+                        <button class="abonner btn-abone active">Déjà abonné</button>
+                       <% } else {%>
+                           <button class="abonner btn-abone">Abonnez-vous !</button>
+                    <% } %>
+                </a>
+                <p>|</p>
+                <a href="/contacte"><button class="contact">Contactez nous !</button></div></a>
+        </div>
+    </section>
+    <%- include("./components/footer") %>
+    <%- include('./components/scripts') %>
+</body>
+
+</html>
